@@ -1,0 +1,103 @@
+:global{
+    /*=============== ACCOUNT ===============*/    
+    .account__container {                
+        background-color: var(--body-color);
+
+        // Sidebar
+        .sidebar {                        
+            padding: 20px;            
+            margin-bottom: 40px;
+            transition: all 0.3s ease;
+            border-radius: .5rem;
+            border: 2px solid var(--border-color);
+
+            ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+
+                li {
+                    padding: 12px 20px;
+                    cursor: pointer;
+                    border-radius: 4px;
+                    margin-bottom: 10px;
+                    transition: background-color 0.2s;
+                    color: var(--title-color);
+                    font-size: var(--h4-font-size);
+                    font-weight: var(--font-medium);
+                    border-radius: var(--h6-font-size);
+
+                    &.active, &:hover {
+                        background-color: var(--first-color);
+                        color: var(--white-color);
+                    }                    
+                }
+            }
+        }
+
+        // Nội dung chính
+        .content {
+            flex: 1;            
+            overflow-y: auto;
+            border: 2px solid var(--border-color);
+            border-radius: .5rem;
+            padding: 20px;
+
+            // Responsive padding
+            @media(max-width: 768px) {
+                padding: 20px;
+            }
+        }
+    }
+
+    // Responsive layout for mobile
+    @media(max-width: 768px) {
+        .account-container {
+            flex-direction: column;
+
+            .sidebar {
+                width: 100%;
+                display: flex;
+                overflow-x: auto;
+                padding: 10px 20px;
+
+                ul {
+                    display: flex;
+                    flex-direction: row;
+                    width: 100%;
+                    justify-content: space-around;
+
+                    li {
+                        flex: 1;
+                        text-align: center;
+                        padding: 10px 8px;
+                        margin: 0 5px;
+                    }
+                }
+            }
+
+            .content {
+                padding: 20px;
+            }
+        }
+    }
+
+        @media screen and (min-width: 1150px) {
+        .account__container{
+            grid-template-columns: 300px 1fr;
+            margin-top: 40px;
+            height: 100vh;
+            .sidebar{
+                position: sticky;
+                height: calc(80vh - 40px);
+                top: 70px;
+            }
+            .content{                
+                height: calc(80vh - 40px);
+                &::-webkit-scrollbar{
+                    display: none;
+                }
+            }
+        }
+    }
+}

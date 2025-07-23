@@ -1,0 +1,128 @@
+:global{
+    /*=============== FOOTER ===============*/
+    .footer {
+        padding-block: 4rem 7rem;
+    }
+
+    .footer__container {
+        row-gap: 3rem;
+
+        .footer__logo {
+            display: inline-flex;
+            align-items: center;
+            column-gap: .5rem;
+            color: var(--first-color);
+            font-size: var(--h3-font-size);
+            font-family: var(--second-font);
+            margin-bottom: 1.25rem;
+        }
+    
+        .footer__logo {
+            &-icon{
+                font-size: 1.25rem;
+            }
+        }
+    }
+
+
+    .footer__data {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem 2rem;
+
+        .footer__title {
+            font-size: var(--h3-font-size);
+            margin-bottom: 1.25rem;
+        }
+    
+        .footer__links {
+            display: grid;
+            row-gap: .5rem;
+        }
+    
+        .footer__link {
+            color: var(--text-color);
+            transition: color .4s;
+        }
+    
+        .footer__link:hover {
+            color: var(--first-color);
+        }
+    
+        .footer__info {
+            font-style: normal;
+        }
+    
+        .footer__social {
+            display: flex;
+            column-gap: 1.25rem;
+        }
+    
+        .footer__social-link {
+            font-size: 1.25rem;
+            color: var(--first-color);
+        }
+    }
+
+
+    .footer__copy {
+        display: block;
+        margin-top: .5rem;
+        text-align: center;
+        font-size: var(--small-font-size);
+    }
+
+    /* For small devices */
+    @media screen and (max-width: 320px) {     
+        .footer__data {
+            grid-template-columns: 1fr;
+            row-gap: 2rem;
+        }
+    }
+
+    @media screen and (min-width: 576px) {        
+        .footer__data {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    @media screen and (min-width: 768px) {     
+        .footer__container {
+            grid-template-columns: repeat(2, 1fr);
+            justify-content: space-between;
+        }
+    }
+
+    /* For large devices */
+    @media screen and (min-width: 1150px) {       
+        .footer {
+            padding-block: 3rem 2rem;
+        }
+
+        .footer__data {
+            grid-template-columns: repeat(4, 1fr);
+            column-gap: 4.5rem;
+        }
+
+        .footer__logo,
+        .footer__title {
+            font-size: var(--h2-font-size);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer__social {
+            column-gap: 1.5rem;
+        }
+
+        .footer__social-link {
+            font-size: 1.5rem;
+        }
+
+        .footer__copy {
+            margin-top: 3.5rem;
+        }
+
+        .footer__container {
+            display: flex;
+        }
+    }
+}

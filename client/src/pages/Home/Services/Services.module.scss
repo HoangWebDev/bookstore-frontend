@@ -1,0 +1,46 @@
+:global{
+/*=============== SERVICES ===============*/
+    .services__container {
+        row-gap: 3rem;
+    }
+
+    .services__card {
+        text-align: center;
+    }
+
+    .services__card {
+        &-icon{
+            width: 100%;
+            display: block;
+            font-size: 3rem;
+            color: var(--first-color);
+            margin-bottom: 1rem;
+        }
+    }
+
+    .services__title {
+        font-size: var(--h3-font-size);
+        margin-bottom: .5rem;
+    }
+
+    @media screen and (min-width: 768px) {
+        .services__container {
+            grid-template-columns: repeat(3, 1fr);
+            justify-content: center;
+            column-gap: 5rem;
+        }
+    }
+
+    /* For large devices */
+    @media screen and (min-width: 1150px) {        
+        .services__container {
+            column-gap: 10rem;
+        }
+
+        .services__card {
+            &-icon{
+                font-size: 3.5rem;
+            }
+        }
+    }
+}

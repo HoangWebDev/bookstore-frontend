@@ -1,0 +1,90 @@
+:global{
+    /*=============== CONTACT ===============*/    
+    .contact__navigate-link {
+        display: none
+    }
+
+    .contact__navigate-prevent {
+        display: flex;
+        align-items: center;
+        column-gap: 3px;
+        transition: all .3s linear;
+        width: max-content;
+        font-weight: var(--font-semi-bold);
+
+        &:hover {
+            color: var(--title-color);
+        }
+    }
+
+    .contact__container {
+        margin-top: 1rem;
+        row-gap: .5rem;
+       
+            .contact__infor ul,
+            .contact__infor ol {
+                list-style: revert;
+                padding-left: 1.5rem;
+            }
+        
+            .contact__infor li {
+                margin-bottom: 0.5rem;
+            }
+        
+            .contact__infor h1,
+            .contact__infor h2,
+            .contact__infor h3 {
+                font-weight: 600;
+                margin-top: 1.5rem;
+                margin-bottom: 0.5rem;
+            }
+        
+            .contact__infor p {
+                margin-bottom: 1rem;
+                line-height: 1.6;
+            }
+        
+            .contact__infor a {
+                color: #2563eb;
+                /* Tailwind blue-600 */
+                text-decoration: underline;
+            }        
+
+        .contact__form {
+            margin: 10px 0;
+            text-align: left;
+        }
+    }
+
+    /* For small devices */
+    @media screen and (max-width: 320px) {
+    
+    }
+
+    /* Navigation for mobile devices */
+    @media screen and (max-width: 1150px) {
+
+    }
+
+    /* For large devices */
+    @media screen and (min-width: 1150px) {
+        .contact__navigate-link {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            margin: 10px 0;
+            cursor: pointer;
+            font-size: var(--h5-font-size);
+        }
+
+        .contact__navigate-prevent {
+            display: none;
+        }
+
+        .contact__container {
+            grid-template-columns: 500px 615px;
+            justify-content: space-between;
+            align-items: center;            
+        }
+    }
+}

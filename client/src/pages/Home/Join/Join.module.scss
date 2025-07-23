@@ -1,0 +1,61 @@
+:global{
+    /*=============== JOIN ===============*/
+    .join__container {
+        position: relative;
+        padding-block: 3rem;
+    }
+
+    .join__bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .join__data {
+        position: relative;
+    }
+
+    .join__title {
+        color: var(--white-color);
+    }
+
+    .join__form {
+        display: grid;
+        row-gap: 1rem;
+    }
+
+    .join__input {
+        padding: 1.25rem;
+        background-color: var(--body-color);
+        color: var(--title-color);
+        transition: background-color .4s;
+        border-radius: var(--h6-font-size);
+    }
+
+    .join__input::placeholder {
+        color: var(--text-color);
+    }
+
+    .join__button {
+        padding-block: 1.25rem;
+        cursor: pointer;
+    }
+
+    @media screen and (min-width: 576px) {        
+        .join__form {
+            width: 320px;
+            justify-self: center;
+        }
+    }
+
+    /* For large devices */
+    @media screen and (min-width: 1150px) {        
+        .join__bg {
+            object-position: 0 -5rem;
+        }
+    }
+}

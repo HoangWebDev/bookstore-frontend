@@ -1,0 +1,33 @@
+:global{
+    .main {
+            overflow: hidden;
+            /* For animation ScrollReveal */   }
+
+    .chat__button{
+        position: fixed;
+        right: 2rem;
+        bottom: 6rem !important;
+        width: 2.5rem;
+        height: 2.5rem;
+        background-color: var(--container-color) !important;
+        border: 2px solid var(--first-color);
+        padding: 0.5rem !important;
+        font-size: 1.5rem;
+        color: var(--first-color) !important;
+        transition: bottom 0.5s ease, right 0.5s ease, background-color .4s, border .4s;        
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        z-index: var(--z-tooltip);
+    
+        &-icon {
+                font-size: 1rem;
+            }
+    }
+
+        @media screen and (min-width: 1150px) {
+            .chat__button {
+                bottom: 3rem;    
+            }
+        }
+}

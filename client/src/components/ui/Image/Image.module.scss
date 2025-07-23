@@ -1,0 +1,18 @@
+:global{
+    .image {
+        max-width: 100%; // Đảm bảo ảnh không vượt quá kích thước container
+        max-height: 100%; // Đảm bảo ảnh không vượt quá kích thước container
+        object-fit: contain; // Sử dụng object-fit: contain
+        transition: opacity 0.3s ease-in-out;
+        margin: 0;
+        padding: 0;
+    }
+
+    .image__loaded {
+        opacity: 1;
+    }
+
+    .image__unloaded {
+        opacity: 0.5;        
+    }
+}

@@ -1,0 +1,91 @@
+:global{
+    /*=============== NEW ===============*/
+    .new__card {
+        display: flex;
+        align-items: center;
+        column-gap: 2.5rem;
+        background-color: var(--container-color);
+        padding: 1rem 1rem;
+        color: var(--text-color);
+        border: 2px solid var(--border-color);
+        transition: border .4s, background-color .4s;
+        border-radius: var(--h6-font-size);
+    }
+
+    .new__card:hover {
+        border: 2px solid var(--text-color);
+    }
+
+    .new__img {
+        width: 100px;
+    }
+
+    .new__title {
+        font-size: var(--h3-font-size);
+        margin-bottom: .5rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;            
+        width: 150px;
+    }
+
+    .new__prices {
+        display: flex;
+        align-items: center;
+        column-gap: .75rem;
+        margin-bottom: .75rem;
+        color: var(--text-color);
+    }
+
+    .new__discount {
+        color: var(--title-color);        
+        font-size: var(--small-font-size);
+        font-weight: var(--font-semi-bold);
+    }
+
+    .new__price {
+        font-size: var(--smaller-font-size);
+        text-decoration: line-through;
+    }
+
+    .new__stars {
+        color: var(--first-color);
+    }
+
+    .new__swiper:nth-child(1) {
+        margin-bottom: 2rem;
+    }
+
+    /* For small devices */
+    @media screen and (max-width: 320px) {            
+        .new__card {
+            flex-direction: column;
+        }            
+    }
+
+    /* For medium devices */
+    @media screen and (min-width: 450px) {      
+        .new__card {
+            width: 390px;
+        }
+    }
+
+    /* For large devices */
+    @media screen and (min-width: 1150px) {        
+        .new__container {
+            padding-top: 2rem;
+        }
+
+        .new__card {
+            padding: 1rem;
+        }
+
+        .new__img {
+            width: 120px;
+        }
+
+        .new__title {            
+            font-size: var(--small-font-size);           
+        }
+    }
+}

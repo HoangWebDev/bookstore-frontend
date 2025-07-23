@@ -1,0 +1,79 @@
+:global{
+    /*=============== DISCOUNT ===============*/
+    .discount__container {
+        row-gap: 3.5rem;
+    }
+
+    .discount__data {
+        text-align: center;
+        /* margin-bottom: 1rem; */
+    }
+
+    .discount__title {
+        margin-bottom: 1rem;
+    }
+
+    .discount__description {
+        margin-bottom: 2rem;
+    }
+
+    .discount__images {
+        display: flex;
+        justify-content: center;
+    }
+
+    .discount__img-1,
+    .discount__img-2 {
+        width: 170px;
+    }
+
+    .discount__img-1 {
+        transform: translateX(1rem) rotate(-10deg);
+    }
+
+    .discount__img-2 {
+        transform: translateX(-1rem) rotate(10deg);
+    }
+
+    /* For small devices */
+    @media screen and (max-width: 320px) {    
+        .discount__img-1,
+        .discount__img-2 {
+            width: 140px;
+        }
+    }
+
+    @media screen and (min-width: 576px) {        
+        .discount__container {
+            grid-template-columns: 420px;
+            justify-content: center;
+        }
+    }
+
+    /* For large devices */
+    @media screen and (min-width: 1150px) {                
+        .discount__container {
+            grid-template-columns: 615px 500px;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .discount__data {
+            order: 1;
+        }
+
+        .discount__data,
+        .discount__title {
+            text-align: initial;
+        }
+
+        .discount__description {
+            margin-bottom: 3.5rem;
+        }
+
+        .discount__img-1,
+        .discount__img-2 {
+            width: 300px;
+        }
+    }
+}

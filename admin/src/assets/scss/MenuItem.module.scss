@@ -1,0 +1,68 @@
+:global {    
+    .menu_item-container {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .menu_item {
+        padding: .5rem .75rem;
+        border-radius: .5rem;
+        display: flex;
+        align-items: center;
+        gap: $menu-item-gap;
+            color: $menu-item-color-secondary;
+        
+        &-button {
+            justify-content: space-between;
+        }
+        
+        &-active{
+            background: #ecf3ff;            
+            color: $menu-item-color-primary;
+        }
+
+        &:hover{
+            background: #f2f4f7;
+        }
+    }
+
+    .menu_item-icon {
+        width: $menu-icon-size;
+        height: $menu-icon-size;           
+    }
+
+    .menu_item-label {
+        font-size: 0.875rem;
+        font-weight: 600;
+        line-height: 1.25rem;
+    }
+
+    .submenu_container {
+        padding-left: 2rem;        
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        // Thêm hiệu ứng cho submenu
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, margin 0.3s ease-in-out;
+        opacity: 0;
+
+        &.submenu_container-open {
+            max-height: 500px; // Giá trị đủ lớn để chứa nội dung submenu
+            opacity: 1;
+            margin-top: 0.5rem;
+        }
+    }
+
+    .arrow_icon {
+        width: 1rem;
+        height: 1rem;
+        transition: transform 0.2s ease;
+
+        &.arrow_icon-open {
+            transform: rotate(180deg);
+        }
+    }
+}

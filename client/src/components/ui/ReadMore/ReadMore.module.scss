@@ -1,0 +1,35 @@
+:global{
+    .read__more{
+        position: relative;
+        transition: all 0.4s ease-in-out;
+        &-text{
+            transition: max-height 0.4s ease-in-out;
+            overflow: hidden;
+        }
+
+        &-hidden{
+            overflow: hidden;
+        }
+
+        &-gradient{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;            
+            background: linear-gradient(to top, var(--container-color), transparent);
+            pointer-events: none;
+            transition: height 0.4s ease-in-out;
+        }
+
+        &-button{
+            position: relative;
+            margin-top: 1rem;
+            background: none;
+            color: #0070f3;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            z-index: 1;
+        }
+    } 
+}

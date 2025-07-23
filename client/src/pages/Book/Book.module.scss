@@ -1,0 +1,389 @@
+:global {
+
+    /*=============== BOOK ===============*/
+    .book__navigate-link {
+        display: none
+    }
+
+    .book__navigate-prevent {
+        display: flex;
+        align-items: center;
+        column-gap: 3px;
+        transition: all .3s linear;
+        width: max-content;
+        font-weight: var(--font-semi-bold);
+
+        &:hover {
+            color: var(--title-color);
+        }
+    }
+
+    .book__container {
+        margin-top: 1rem;
+        row-gap: .5rem;
+
+        .book__filters {    
+            display: flex;
+            justify-content: space-between;    
+            align-items: center;    
+            background-color: var(--container-color);            
+            border-radius: var(--h6-font-size);
+            margin-bottom: 1rem;
+            font-size: var(--h4-font-size);
+            font-weight: var(--font-semi-bold);
+            box-shadow: 0 0 2px hsla(0, 0%, 0%, .1);
+
+            &-buys{
+                .book__filters-lists{
+                    display: flex;
+                    align-items: center;
+                    column-gap: 1rem;
+
+                    li{
+                        color: var(--text-color);
+                        transition: color .4s ease-in-out;
+
+                        &:hover{
+                            color: var(--title-color);
+                        }
+                    }
+                }
+            }
+
+            &-button{
+                display: flex;
+                column-gap: .5rem;
+                align-items: center;
+                color: var(--text-color);
+                transition: color .4s ease-in-out;
+
+                &:hover{
+                    color: var(--title-color);
+                }
+            }
+
+            &-filter{
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                width: 100%;                
+                height: 0;                
+                border-radius: .5rem .5rem 0 0;               
+                padding-inline: 1.5rem;
+                box-shadow: 0 -8px 32px hsla(0, 0%, 0%, .1);
+                transition: height .4s ease-in-out;
+                z-index: 99;                
+
+                .book__filters-header{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    border-bottom: 1px solid var(--border-color);
+                    padding: .5rem 0;                                                                          
+
+                    .book__filters-text{
+                        font-size: var(--h3-font-size);
+                    }
+
+                    .book__filters-close{
+                        font-size: var(--h3-font-size);
+                        color: var(--title-color);
+                        cursor: pointer;
+                    }
+                }
+
+                .book__filters-data{
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: .5rem;
+                    margin-top: .5rem;
+                    overflow-y: auto;
+                    height: 100%;                        
+                    
+                    >div:not(:last-child){
+                        border-bottom: 1px solid var(--border-color);
+                    }
+
+                    .book__filters-prices,
+                    .book__filters-genres,
+                    .book__filters-publishers,
+                    .book__filters-authors{                     
+
+                        .book__filters-title{
+                            font-size: var(--h4-font-size);
+                            margin-bottom: .5rem;
+                            font-weight: var(--font-semi-bold);
+                        }
+
+                        .book__filters-ranges{
+
+                            .book__filters-range{
+                                display: flex;                                
+                                align-items: center;
+                                column-gap: .5rem;
+                                margin-bottom: .5rem;
+                                font-weight: var(--font-medium);
+                                color: var(--title-color);
+                                cursor: pointer;
+                                
+                                input{
+                                    width: 1rem;
+                                    height: 1rem;
+                                    cursor: pointer;
+                                }
+                                
+                                label{
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+            &-filter-active{
+                height: 75%;                
+            }
+            
+            &-overlay{
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background-color: hsla(230, 12%, 96%, .6);
+                backdrop-filter: blur(16px);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 98;
+            }
+        }
+
+        .book__lists-empty{
+            grid-template-columns: 1;
+            place-items: center;             
+            .book__empty{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                row-gap: 1rem;
+                margin-top: 1rem;
+            }
+        }
+
+        .book__lists{
+            &-container{
+                grid-template-columns: repeat(2, 1fr);
+                gap: .5rem;
+
+                .book__lists-card {
+                    position: relative;
+                    text-align: center;
+                    background-color: var(--container-color);
+                    padding: 1rem;
+                    overflow: hidden;
+                    border: 2px solid var(--border-color);
+                    transition: border .4s, background-color .4s;
+                    border-radius: var(--h6-font-size);
+                    cursor: pointer;
+
+                    .book__lists-img {
+                        width: 100px;
+                        margin: 0 auto 0.75rem;
+                    }
+                
+                    .book__lists-title {
+                        font-size: var(--h3-font-size);
+                        margin-bottom: .5rem;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+                
+                    .book__lists-prices {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        column-gap: .75rem;
+                        margin-bottom: 1.25rem;
+                
+                        >div{
+                            display: flex;
+                            flex-direction: column;
+                            .book__lists-discount {
+                                color: var(--title-color);
+                                font-weight: var(--font-semi-bold);
+                            }
+                    
+                            .book__lists-price {
+                                font-size: var(--small-font-size);
+                                text-decoration: line-through;
+                            }
+                        }
+                
+                        .book__lists-sale {
+                            font-size: var(--smaller-font-size);
+                            color: var(--error-color);
+                            font-weight: var(--font-semi-bold);
+                            background: var(--error-background-color);
+                            padding: .5rem 1rem;
+                            border-radius: .5rem;
+                        }
+                    }
+                
+                    .book__lists-add-cart{
+                        padding: 0.5rem 1rem;
+                    }
+                
+                    .book__lists-actions {
+                        display: inline-flex;
+                        flex-direction: column;
+                        row-gap: .75rem;
+                        position: absolute;
+                        top: 2rem;
+                        right: -1.5rem;
+                        transition: right .4s;                       
+                    }
+                
+                    .book__lists-actions button {
+                        background-color: transparent;
+                        font-size: 1.25rem;
+                        color: var(--first-color);
+                        cursor: pointer;
+                    }
+                
+                    &:hover .book__lists-actions {
+                        right: .75rem;
+                    }
+                }            
+            }
+        }
+    }
+
+    /* For small devices */
+    @media screen and (max-width: 320px) {
+    }
+
+    /* Navigation for mobile devices */
+    @media screen and (max-width: 1150px) {
+        .book__container {
+            .book__filters{
+                margin-inline: -1.5rem;
+                padding: .5rem 1.5rem;                
+
+                &-filter-active {
+                    padding-bottom: 5rem;
+                }
+            }
+        }
+    }
+
+    /* For large devices */
+    @media screen and (min-width: 1150px) {
+        .book__navigate-link {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            margin: 10px 0;
+            cursor: pointer;
+            font-size: var(--h5-font-size);
+        }
+
+        .book__navigate-prevent {
+            display: none;
+        }
+
+        .book__container {
+            grid-template-columns: 300px 1fr;  
+            gap: 1rem;                      
+
+            .book__filters{                                
+                width: 100%;
+                flex-direction: column;   
+                background: none;             
+                box-shadow: none;                   
+
+                &-buys,
+                &-button{
+                    display: none;
+                }
+                
+                &-filter{                                
+                    padding: .5rem 1rem;
+                    position: sticky;
+                    top: 5.5rem;
+                    left: 0;                    
+                    width: 100%;                    
+                    height: auto;    
+                    border-radius: 0.5rem;
+                    border: 2px solid var(--border-color);                                          
+                    background-color: var(--container-color);
+                    box-shadow: none;
+
+                    .book__filters-header{
+                        .book__filters-close{
+                            display: none;
+                        }
+                    }        
+                    
+                    .book__filters-data{
+                        .book__filters-prices,
+                        .book__filters-genres,
+                        .book__filters-publishers,
+                        .book__filters-authors {
+                    
+                            .book__filters-title {
+                                font-size: .8rem;
+                            }
+                    
+                            .book__filters-ranges {
+                    
+                                .book__filters-range {                                                    
+                                    input {
+                                        width: 1rem;
+                                        height: 1rem;
+                                    }
+                                    label{
+                                        font-size: .8rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .book__lists {
+                &-container {
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: .5rem;
+
+                    .book__lists-card {                       
+                        .book__lists-img {
+                            width: 120px;                            
+                        }                    
+                        
+                        .book__lists-title {
+                            font-size: var(--h4-font-size);
+                        }
+
+                        .book__lists-prices {                            
+                            flex-direction: row;                                              
+                        }
+
+                        .book__lists-add-cart {
+                            padding: 1rem 1.5rem;
+                        }      
+                        
+                        &:hover .book__lists-actions {
+                            right: 1.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
