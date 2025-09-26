@@ -2,9 +2,8 @@ import { useState } from 'react';
 import './Account.module.scss';
 
 import AccountInfo from '~/components/account/AccountInfo/AccountInfo';
-import Orders from '~/components/account/Orders';
-import Preferences from '~/components/account/Preferences';
-import Settings from '~/components/account/Settings';
+import Orders from '~/components/account/Order/Orders';
+import Preferences from '~/components/account/Preferences/Preferences';
 import { useSelector } from 'react-redux';
 import { RootState } from '~/redux/store';
 import UserModel from '~/models/UserModel';
@@ -21,8 +20,6 @@ function Account() {
                 return <Orders />;
             case 'preferences':
                 return <Preferences />;
-            case 'settings':
-                return <Settings />;
             default:
                 return null;
         }
@@ -50,12 +47,6 @@ function Account() {
                             onClick={() => setActiveTab('preferences')}
                         >
                             Sở thích
-                        </li>
-                        <li
-                            className={activeTab === 'settings' ? 'active' : ''}
-                            onClick={() => setActiveTab('settings')}
-                        >
-                            Cài đặt
                         </li>
                     </ul>
                 </aside>

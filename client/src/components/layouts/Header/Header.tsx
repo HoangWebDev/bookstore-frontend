@@ -1,6 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
 import {
-    RiBook3Line,
     RiSearchLine, RiUserLine, RiMoonLine, RiSunLine,
     RiShoppingCart2Line
 } from "react-icons/ri";
@@ -12,6 +11,8 @@ import { menuItems } from "~/constants/menu";
 import NavMenu from "~/components/ui/NavMenu/NavMenu";
 import { useSelector } from "react-redux";
 import { RootState } from "~/redux/store";
+import Image from "~/components/ui/Image/Image";
+import logo from "~/assets/image/logo.png";
 
 function Header() {
     const location = useLocation();
@@ -41,7 +42,7 @@ function Header() {
         <header className={`header${isScrolled ? " shadow-header" : ""}`}>
             <nav className="nav container">
                 <Link to={"/"} className="nav__logo">
-                    <RiBook3Line className="nav__logo-icon" /> E-Book
+                    <Image src={logo} className="nav__logo-icon" /> E-Book
                 </Link>
 
                 <div

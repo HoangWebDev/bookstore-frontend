@@ -1,5 +1,6 @@
 import { IconType } from "react-icons";
-import { FaRegAddressBook } from "react-icons/fa6";
+import { FaPhotoVideo } from "react-icons/fa";
+import { FaRegAddressBook, FaUser } from "react-icons/fa6";
 import { IoIosPerson, IoMdBook } from "react-icons/io";
 import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
 import { LuLayoutDashboard } from "react-icons/lu";
@@ -32,6 +33,14 @@ export const menuItems: MenuItem[] = [
         ]
     },
     {
+        icon: FaUser,
+        label: "User",
+        children: [
+            { label: "Manage User", to: "/user" },
+            { label: "Admin Information", to: "/admin" }
+        ]
+    },
+    {
         icon: IoMdBook,
         label: "Book",
         to: "/book"
@@ -51,6 +60,19 @@ export const menuItems: MenuItem[] = [
         label: "Publisher",
         to: "/publisher"
     }
+];
+
+export const imageItems: MenuItem[] = [
+    {
+        icon: FaPhotoVideo,
+        label: "Video - Image",
+        children: [
+            { label: "Logo", to: "/logo" },
+            { label: "Banner", to: "/banner" },
+            { label: "Watermark", to: "/watermark" },
+            { label: "Favicon", to: "/favicon" },
+        ]
+    },
 ];
 
 export const staticItems: MenuItem[] = [

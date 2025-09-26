@@ -1,5 +1,81 @@
 :global {
-    .account__info{
-        height: 1000px;
+    .account__info{                
+        h2{
+            text-align: center;
+            margin: .5rem;
+        }
+        .profile-info{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;            
+            text-align: left;;
+            gap: .5rem;
+            &__name{
+                display: flex;
+                flex-direction: column;
+                
+                .name-label{
+                    margin-bottom: .5rem;
+                    font-size: var(--h4-font-size);
+                    font-weight: var(--font-semi-bold);
+                }
+                .name-input{
+                    border: 2px solid var(--border-color);
+                    border-radius: var(--h6-font-size);
+                    padding: .5rem;
+                }
+            }
+            &__username{
+                display: flex;
+                flex-direction: column;
+
+                .username-label{
+                    margin-bottom: .5rem;
+                    font-size: var(--h4-font-size);
+                    font-weight: var(--font-semi-bold);
+                }
+                .username-input{
+                    border: 2px solid var(--border-color);
+                    border-radius: var(--h6-font-size);
+                    padding: .5rem;
+                }
+            }
+            &__role{
+                display: flex;
+                flex-direction: column;
+
+                .role-label{
+                    margin-bottom: .5rem;
+                    font-size: var(--h4-font-size);
+                    font-weight: var(--font-semi-bold);
+                }
+                .role-input{                    
+                    border-radius: var(--h6-font-size);
+                    padding: .5rem;
+                }
+            }
+            &__btn {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;                
+                gap: .5rem;
+            }
+        }
+    }
+
+    @media screen and (min-width: 1150px) {
+        .account__info {
+                h2 {
+                    margin: 1rem 1rem 2rem 1rem;
+                }
+        
+                .profile-info {                    
+                    &__btn {                        
+                        flex-direction: row;                        
+                        align-items: center;
+                        gap: 1rem;
+                    }
+                }
+            }   
     }
 }

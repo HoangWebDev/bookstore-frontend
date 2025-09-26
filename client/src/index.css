@@ -6,8 +6,8 @@
     /*========== Colors ==========*/
     /*Color mode HSL(hue, saturation, lightness)*/
     --success-color: hsl(140, 70%, 40%);
-    --first-color: hsl(230, 62%, 56%);
-    --title-color: hsl(230, 70%, 16%);
+    --first-color: hsl(227, 52%, 34%);
+    --title-color: hsl(229, 71%, 57%);
     --text-color: hsl(230, 16%, 45%);
     --text-color-opacity: hsla(229, 16%, 45%, 0.15);
     --border-color: hsl(230, 50%, 90%);

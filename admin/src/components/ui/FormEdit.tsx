@@ -67,47 +67,49 @@ function FormEdit<T extends FieldValues>({ fields, onSubmit, defaultValues, isLo
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="-mx-2.5 flex flex-wrap gap-y-5">
                             {/* Slug input riêng */}
-                            <div className="w-1/2 px-2.5">
-                                <label htmlFor="slug" className="mb-1.5 block text-sm font-bold text-gray-700">
-                                    Slug <span className="text-red-500">*</span>
-                                </label>
-                                <input
-                                    id="slug"
-                                    type="text"
-                                    placeholder="Enter or auto-generate slug"
-                                    {...register("slug" as Path<T>, {
-                                        required: "Slug is required",
-                                        minLength: {
-                                            value: 3,
-                                            message: "Slug must be at least 3 characters"
-                                        },
-                                        validate: async (value) => {
+                            {fields.some(f => f.name === "slug") && (
+                                <div className="w-1/2 px-2.5">
+                                    <label htmlFor="slug" className="mb-1.5 block text-sm font-bold text-gray-700">
+                                        Slug <span className="text-red-500">*</span>
+                                    </label>
+                                    <input
+                                        id="slug"
+                                        type="text"
+                                        placeholder="Enter or auto-generate slug"
+                                        {...register("slug" as Path<T>, {
+                                            required: "Slug is required",
+                                            minLength: {
+                                                value: 3,
+                                                message: "Slug must be at least 3 characters"
+                                            },
+                                            validate: async (value) => {
+                                                setIsSlugManuallyEdited(true);
+                                                if (!isSlugManuallyEdited || value === initialSlugRef.current) return true;
+                                                return await checkSlugExists("/book/check-slug", value);
+                                            }
+                                        })}
+                                        onChange={() => {
                                             setIsSlugManuallyEdited(true);
-                                            if (!isSlugManuallyEdited || value === initialSlugRef.current) return true;
-                                            return await checkSlugExists("/book/check-slug", value);
-                                        }
-                                    })}
-                                    onChange={() => {
-                                        setIsSlugManuallyEdited(true);
-                                    }}
-                                    className="h-11 w-full rounded-md border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 shadow-xs outline-none placeholder:text-gray-400 focus:border-blue-600 focus:ring-4 focus:ring-blue-600/10"
-                                />
+                                        }}
+                                        className="h-11 w-full rounded-md border border-gray-300 bg-transparent px-4 py-2.5 text-sm text-gray-800 shadow-xs outline-none placeholder:text-gray-400 focus:border-blue-600 focus:ring-4 focus:ring-blue-600/10"
+                                    />
 
-                                {/* Lỗi từ react-hook-form */}
-                                {errors["slug"] && (
-                                    <p className="text-sm text-red-500 mt-1">
-                                        {errors["slug"]?.message?.toString()}
-                                    </p>
-                                )}
+                                    {/* Lỗi từ react-hook-form */}
+                                    {errors["slug"] && (
+                                        <p className="text-sm text-red-500 mt-1">
+                                            {errors["slug"]?.message?.toString()}
+                                        </p>
+                                    )}
 
-                                {/* Kết quả kiểm tra slug từ API */}
-                                {slugValid === false && (
-                                    <p className="text-sm text-red-500 mt-1">Slug already exists.</p>
-                                )}
-                                {slugValid === true && (
-                                    <p className="text-sm text-green-600 mt-1">Slug is available.</p>
-                                )}
-                            </div>
+                                    {/* Kết quả kiểm tra slug từ API */}
+                                    {slugValid === false && (
+                                        <p className="text-sm text-red-500 mt-1">Slug already exists.</p>
+                                    )}
+                                    {slugValid === true && (
+                                        <p className="text-sm text-green-600 mt-1">Slug is available.</p>
+                                    )}
+                                </div>
+                            )}
                             {fields.map((field, index) => {
                                 if (field.name === "slug") return null;
                                 if (field.name !== "biography" && field.name !== "description" && field.name !== "content") {

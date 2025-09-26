@@ -6,7 +6,7 @@
         // Sidebar
         .sidebar {                        
             padding: 20px;            
-            margin-bottom: 40px;
+            // margin-bottom: 40px;
             transition: all 0.3s ease;
             border-radius: .5rem;
             border: 2px solid var(--border-color);
@@ -17,7 +17,7 @@
                 margin: 0;
 
                 li {
-                    padding: 12px 20px;
+                    padding: 6px 10px;
                     cursor: pointer;
                     border-radius: 4px;
                     margin-bottom: 10px;
@@ -91,6 +91,12 @@
                 position: sticky;
                 height: calc(80vh - 40px);
                 top: 70px;
+
+                ul {                                      
+                        li {
+                            padding: 12px 20px;
+                        }
+                    }
             }
             .content{                
                 height: calc(80vh - 40px);

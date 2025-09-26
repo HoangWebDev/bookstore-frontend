@@ -1,23 +1,25 @@
 import { config } from "~/config";
 import { Route } from "~/types/routeType";
 import AdminLayout from "~/components/layouts/Admin";
-import Author from "~/pages/Author";
-import Book from "~/pages/Book";
-import Category from "~/pages/Category";
+import Author from "~/pages/Authors/Author";
+import Book from "~/pages/Books/Book";
+import Category from "~/pages/Categories/Category";
 import DashBoard from "~/pages/DashBoard";
-import NewBook from "~/pages/NewBook";
-import Publisher from "~/pages/Publisher";
-import UpdateBook from "~/pages/UpdateBook";
-import NewCategory from "~/pages/NewCategory";
-import NewPublisher from "~/pages/NewPublisher";
-import NewAuthor from "~/pages/NewAuthor";
-import EditCategory from "~/pages/UpdateCategory";
-import EditPublisher from "~/pages/UpdatePublisher";
-import EditAuthor from "~/pages/UpdateAuthor";
-import EditBook from "~/pages/UpdateBook";
+import NewBook from "~/pages/Books/NewBook";
+import Publisher from "~/pages/Publishers/Publisher";
+import NewCategory from "~/pages/Categories/NewCategory";
+import NewPublisher from "~/pages/Publishers/NewPublisher";
+import NewAuthor from "~/pages/Authors/NewAuthor";
+import EditCategory from "~/pages/Categories/UpdateCategory";
+import EditPublisher from "~/pages/Publishers/UpdatePublisher";
+import EditAuthor from "~/pages/Authors/UpdateAuthor";
+import EditBook from "~/pages/Books/UpdateBook";
 import Profile from "~/authentication/Profile";
 import Chat from "~/pages/Chat";
 import Contact from "~/pages/Contact";
+import User from "~/pages/Users/User";
+import Admin from "~/pages/Admin/Admin";
+import WatermarkApp from "~/pages/Watermark/Watermark";
 
 export const adminRoutes: Route[] = [
     {
@@ -41,13 +43,33 @@ export const adminRoutes: Route[] = [
         layout: AdminLayout
     },
     {
-        path: config.routes.book,
-        component: Book,
+        path: config.routes.watermark,
+        component: WatermarkApp,
         layout: AdminLayout
     },
     {
-        path: config.routes.update_book,
-        component: UpdateBook,
+        path: config.routes.admin,
+        component: Admin,
+        layout: AdminLayout
+    },
+    {
+        path: config.routes.user,
+        component: User,
+        layout: AdminLayout
+    },
+    // {
+    //     path: config.routes.new_user,
+    //     component: NewUser,
+    //     layout: AdminLayout
+    // },
+    // {
+    //     path: config.routes.update_user,
+    //     component: EditUser,
+    //     layout: AdminLayout
+    // },
+    {
+        path: config.routes.book,
+        component: Book,
         layout: AdminLayout
     },
     {
