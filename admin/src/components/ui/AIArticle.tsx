@@ -29,8 +29,7 @@ function AIArticle({ handleShowAI, onContentGenerated }: AIArticleProps) {
         const formData = {
             title: data.title?.trim() || null, // ✅ khớp với BE            
             keywords: data.keywords?.trim() || null,
-            desiredLength: data.desiredLength,
-            hasImage: true
+            desiredLength: data.desiredLength
         };
 
         setIsLoading(true);

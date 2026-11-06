@@ -19,7 +19,6 @@ import Chat from "~/pages/Chat";
 import Contact from "~/pages/Contact";
 import User from "~/pages/Users/User";
 import Admin from "~/pages/Admin/Admin";
-import WatermarkApp from "~/pages/Watermark/Watermark";
 
 export const adminRoutes: Route[] = [
     {
@@ -40,11 +39,6 @@ export const adminRoutes: Route[] = [
     {
         path: config.routes.chat,
         component: Chat,
-        layout: AdminLayout
-    },
-    {
-        path: config.routes.watermark,
-        component: WatermarkApp,
         layout: AdminLayout
     },
     {
